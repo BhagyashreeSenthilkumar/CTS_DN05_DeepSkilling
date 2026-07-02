@@ -1,0 +1,31 @@
+public class EX6BS {
+
+    public static void main(String[] args) {
+
+        String[] books = {"C++", "DBMS", "Java", "Python"};
+
+        String key = "Java";
+
+        int low = 0;
+        int high = books.length - 1;
+
+        while (low <= high) {
+
+            int mid = (low + high) / 2;
+
+            int result = books[mid].compareTo(key);
+
+            if (result == 0) {
+                System.out.println("Book Found at index " + mid);
+                return;
+            }
+
+            if (result < 0)
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+
+        System.out.println("Book Not Found");
+    }
+}

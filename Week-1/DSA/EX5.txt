@@ -1,0 +1,27 @@
+class Node {
+    int taskId;
+    Node next;
+
+    Node(int taskId) {
+        this.taskId = taskId;
+    }
+}
+
+public class EX5 {
+
+    public static void main(String[] args) {
+
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+
+        Node temp = head;
+
+        System.out.println("Tasks:");
+
+        while (temp != null) {
+            System.out.println("Task " + temp.taskId);
+            temp = temp.next;
+        }
+    }
+}

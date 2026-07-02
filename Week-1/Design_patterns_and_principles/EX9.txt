@@ -1,0 +1,49 @@
+interface Command {
+    void execute();
+}
+
+class Light {
+    void on() {
+        System.out.println("Light ON");
+    }
+
+    void off() {
+        System.out.println("Light OFF");
+    }
+}
+
+class LightOnCommand implements Command {
+    private Light light;
+
+    LightOnCommand(Light light) {
+        this.light = light;
+    }
+
+    public void execute() {
+        light.on();
+    }
+}
+
+class RemoteControl {
+    private Command command;
+
+    RemoteControl(Command command) {
+        this.command = command;
+    }
+
+    void pressButton() {
+        command.execute();
+    }
+}
+
+public class EX9 {
+    public static void main(String[] args) {
+        Light light = new Light();
+
+        Command command = new LightOnCommand(light);
+
+        RemoteControl remote = new RemoteControl(command);
+
+        remote.pressButton();
+    }
+}

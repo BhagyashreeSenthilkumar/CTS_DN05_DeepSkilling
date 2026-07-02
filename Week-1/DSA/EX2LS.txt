@@ -1,0 +1,16 @@
+public class EX2LS {
+    public static void main(String[] args) {
+
+        int[] products = {101, 102, 103, 104, 105};
+        int key = 104;
+
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] == key) {
+                System.out.println("Found at index " + i);
+                return;
+            }
+        }
+
+        System.out.println("Not Found");
+    }
+}

@@ -1,0 +1,35 @@
+import java.util.*;
+
+interface Observer {
+    void update(double price);
+}
+
+class MobileApp implements Observer {
+    public void update(double price) {
+        System.out.println("Mobile App: " + price);
+    }
+}
+
+class StockMarket {
+    private List<Observer> observers = new ArrayList<>();
+
+    void register(Observer observer) {
+        observers.add(observer);
+    }
+
+    void notifyObservers(double price) {
+        for (Observer o : observers) {
+            o.update(price);
+        }
+    }
+}
+
+public class EX7 {
+    public static void main(String[] args) {
+        StockMarket market = new StockMarket();
+
+        market.register(new MobileApp());
+
+        market.notifyObservers(1500);
+    }
+}

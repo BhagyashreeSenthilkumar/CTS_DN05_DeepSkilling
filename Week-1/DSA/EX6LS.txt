@@ -1,0 +1,19 @@
+public class EX6LS {
+
+    public static void main(String[] args) {
+
+        String[] books = {"Java", "Python", "C++", "DBMS"};
+
+        String key = "C++";
+
+        for (int i = 0; i < books.length; i++) {
+
+            if (books[i].equals(key)) {
+                System.out.println("Book Found at index " + i);
+                return;
+            }
+        }
+
+        System.out.println("Book Not Found");
+    }
+}

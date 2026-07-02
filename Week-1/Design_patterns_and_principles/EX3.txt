@@ -1,0 +1,43 @@
+class Computer {
+    private String cpu;
+    private int ram;
+
+    private Computer(Builder builder) {
+        cpu = builder.cpu;
+        ram = builder.ram;
+    }
+
+    public void display() {
+        System.out.println(cpu + " " + ram + "GB");
+    }
+
+    static class Builder {
+        private String cpu;
+        private int ram;
+
+        Builder setCpu(String cpu) {
+            this.cpu = cpu;
+            return this;
+        }
+
+        Builder setRam(int ram) {
+            this.ram = ram;
+            return this;
+        }
+
+        Computer build() {
+            return new Computer(this);
+        }
+    }
+}
+
+public class EX3 {
+    public static void main(String[] args) {
+        Computer pc = new Computer.Builder()
+                .setCpu("Intel i5")
+                .setRam(16)
+                .build();
+
+        pc.display();
+    }
+}
